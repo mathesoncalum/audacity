@@ -231,15 +231,15 @@ BuiltinEffectBase {
                     lineColor: ui.theme.accentColor
                     lineWidth: 2
 
-                    pointRadius: 4.0
-                    pointOutlineColor: ui.theme.accentColor
-                    pointCentreColor: ui.theme.accentColor
-                    pointOutlineWidth: 2.0
-
                     isSnapEnabled: false
 
-                    ghostPointRadius: 3.0
-                    ghostPointOutlineColor: ui.theme.accentColor
+                    pointPainter.pointRadius: 4.0
+                    pointPainter.pointOutlineColor: ui.theme.accentColor
+                    pointPainter.pointCentreColor: ui.theme.accentColor
+                    pointPainter.pointOutlineWidth: 2.0
+
+                    pointPainter.ghostPointRadius: 3.0
+                    pointPainter.ghostPointOutlineColor: ui.theme.accentColor
 
                     drawBackground: false
 
@@ -306,7 +306,7 @@ BuiltinEffectBase {
                     onActivePointChanged: {
                         if (curve.hasActivePoint) {
                             fake.x = curve.activePointX
-                            fake.y = curve.activePointY - (curve.pointRadius + 2)
+                            fake.y = curve.activePointY - (curve.pointPainter.pointRadius + 2)
                             tooltip.gain = curve.activePointValue
                             tooltip.freq = curve.activePointFreq()
                             tooltip.show(true)

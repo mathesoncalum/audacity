@@ -937,13 +937,13 @@ Rectangle {
                     lineColor: ui.theme.extra["audio_envelope_line"]
                     lineWidth: 2
 
-                    pointRadius: 4.0
-                    pointOutlineColor: ui.theme.extra["audio_envelope_point"]
-                    pointCentreColor: ui.theme.extra["audio_envelope_point"]
-                    pointOutlineWidth: 2.0
+                    pointPainter.pointRadius: 4.0
+                    pointPainter.pointOutlineColor: ui.theme.extra["audio_envelope_point"]
+                    pointPainter.pointCentreColor: ui.theme.extra["audio_envelope_point"]
+                    pointPainter.pointOutlineWidth: 2.0
 
-                    ghostPointRadius: 3.0
-                    ghostPointOutlineColor: ui.theme.extra["audio_envelope_point"]
+                    pointPainter.ghostPointRadius: 3.0
+                    pointPainter.ghostPointOutlineColor: ui.theme.extra["audio_envelope_point"]
 
                     points: clipGainModel.points
                     defaultValue: clipGainModel.defaultValue
@@ -989,7 +989,7 @@ Rectangle {
                     onActivePointChanged: {
                         if (automation.hasActivePoint) {
                             fake.x = automation.activePointX
-                            fake.y = automation.activePointY - (automation.pointRadius + 2)
+                            fake.y = automation.activePointY - (automation.pointPainter.pointRadius + 2)
                             tooltip.gain = gainToDb(automation.activePointValue)
                             tooltip.show(true)
                         } else {
